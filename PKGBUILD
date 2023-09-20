@@ -6,12 +6,12 @@
 # will be on config.extra file.
 
 pkgbase=linux-git
-pkgver=6.7.r444.f0a78b3e2a0c
+pkgver=6.10.r10854.f557af081de6
 pkgrel=1
 pkgdesc="Linus Torvalds' Mainline Linux"
 url="https://www.kernel.org"
 arch=(x86_64)
-license=(GPL2)
+license=(GPL-2.0-only)
 _userconfig="/etc/${pkgbase}/config"
 _userremote="/etc/${pkgbase}/remote"
 _userpatches="/etc/${pkgbase}/patches/patches"
@@ -32,7 +32,10 @@ makedepends=(
   tar
   xz
 )
-options=('!strip')
+options=(
+  !debug
+  !strip
+)
 _srcname=linux-torvalds
 source=(
   "$_srcname::git+https://kernel.googlesource.com/pub/scm/linux/kernel/git/torvalds/linux"
@@ -48,7 +51,7 @@ validpgpkeys=(
 )
 b2sums=(
   'SKIP'                                                                                                                              # linux git source
-  '72b204712173dd109f60c6c81a10dc24c64eba7c2be8182a520b52f31ba2ecc4082fc711656a7e4893aac26120f9271c1fda3e37ad94236db95b14a6fdb56a82'  # config
+  'b591064140306057ececa411931b040971cf082e42ad094f8aafbf881bb0d1afb157a6bd33cc5b10cea2aaf1e9fc0529295f91368b261f1b1b99da7792b8d84c'  # config
   '249bec61fed688345a0f41245af9e8e189af3149e66a3c0dcc8e833151428232a701a35ed760ef93ceb5f25d9378c44f903f380a7051a65fb9a203c6fb51ebcd'  # config.extra
   'SKIP'                                                                                                                              # config.user
   'SKIP'                                                                                                                              # remote
@@ -141,6 +144,7 @@ prepare() {
 build() {
   cd $_srcname
   make all
+  make -C tools/bpf/bpftool vmlinux.h feature-clang-bpf-co-re=1
 }
 
 _package() {
@@ -198,7 +202,7 @@ _package-headers() {
 
   echo "Installing build files..."
   install -Dt "$builddir" -m644 .config Makefile Module.symvers System.map \
-    localversion.* version vmlinux
+    localversion.* version vmlinux tools/bpf/bpftool/vmlinux.h
   install -Dt "$builddir/kernel" -m644 kernel/Makefile
   install -Dt "$builddir/arch/x86" -m644 arch/x86/Makefile
   cp -t "$builddir" -a scripts
