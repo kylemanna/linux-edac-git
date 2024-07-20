@@ -13,10 +13,10 @@ case using the current Linux mainline is not desired:
 
 * How to add extra patches on top of the selected remote / branch:
   If a previous linux-git installation exists, please consult and edit the file
-  /etc/linux-git/patches/patches. If not, you can add the patches
-  directly to the src/linux-torvalds/ git source. After compilation and
-  installation, you can copy the patches to the directory
-  /etc/linux-git/patches and follow the instructions included on
+  /etc/linux-git/patches/patches. If not, you can add the patches directly to
+  the root package source and consult and edit the file 'patches' also on root
+  source. After compilation and installation, you can copy the patches to the
+  directory /etc/linux-git/patches and follow the instructions included on
   /etc/linux-git/patches/patches file.
 
 Set env variable IGNORE_USER_CUSTOM to build package ignoring current

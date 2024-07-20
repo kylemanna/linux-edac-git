@@ -111,8 +111,13 @@ prepare() {
   if [[ -z ${IGNORE_USER_CUSTOM} ]]; then
     echo
     echo "====================================== User Patches ======================================"
-    [[ -f "$_userpatches" ]] && source "$_userpatches"
-    PATCHES_PREFIX=${_userpatches%%patches}
+    if [[ -f "$_userpatches" ]]; then
+      source "$_userpatches"
+      PATCHES_PREFIX=${_userpatches%%patches}
+    else
+      source "../${_userpatches##*/}"
+      PATCHES_PREFIX="../../"
+    fi
     for src in "${PATCHES[@]}"; do
       [[ $src = *.patch ]] || continue
       echo " -> Applying user patch $src..."
