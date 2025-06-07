@@ -56,7 +56,7 @@ validpgpkeys=(
 )
 b2sums=(
   'SKIP'                                                                                                                              # linux git source
-  'b591064140306057ececa411931b040971cf082e42ad094f8aafbf881bb0d1afb157a6bd33cc5b10cea2aaf1e9fc0529295f91368b261f1b1b99da7792b8d84c'  # config
+  'a2644043800a384d40677ed957c5c9cbd70600b20f700fa5c3e84684574da7496f8a17b10f2984a15a918ef60211db08996cb189daf3a98cbb8bb5cbad0a8512'  # config
   '249bec61fed688345a0f41245af9e8e189af3149e66a3c0dcc8e833151428232a701a35ed760ef93ceb5f25d9378c44f903f380a7051a65fb9a203c6fb51ebcd'  # config.extra
   'SKIP'                                                                                                                              # config.user
   'SKIP'                                                                                                                              # remote
