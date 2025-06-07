@@ -22,7 +22,9 @@ backup=(
 )
 makedepends=(
   bc
+  bison
   cpio
+  flex
   gettext
   git
   libelf
