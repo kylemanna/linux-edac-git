@@ -22,3 +22,11 @@ case using the current Linux mainline is not desired:
 Set env variable IGNORE_USER_CUSTOM to build package ignoring current
 customizations in place:
 $ IGNORE_USER_CUSTOM=1 makepkg
+
+---
+If you use rustup and you see a compilation error, there's a chance you need to
+manually install some rust components. Check this link for further rustup info:
+https://docs.kernel.org/rust/quick-start.html
+
+If you currently don't use rust, or if you already use the rust native package,
+your rust dependencies will be handled automatically by makepkg.
