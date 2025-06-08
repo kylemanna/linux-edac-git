@@ -5,7 +5,7 @@
 # Refer to config file to get the exact versions it's based on. Any changes to the config
 # will be on config.extra file.
 
-pkgbase=linux-git
+pkgbase=linux-edac-git
 pkgver=6.15.r13627.119b1e61a769
 pkgrel=1
 pkgdesc="Linus Torvalds' Mainline Linux"
@@ -54,14 +54,12 @@ validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-b2sums=(
-  'SKIP'                                                                                                                              # linux git source
-  'a2644043800a384d40677ed957c5c9cbd70600b20f700fa5c3e84684574da7496f8a17b10f2984a15a918ef60211db08996cb189daf3a98cbb8bb5cbad0a8512'  # config
-  '249bec61fed688345a0f41245af9e8e189af3149e66a3c0dcc8e833151428232a701a35ed760ef93ceb5f25d9378c44f903f380a7051a65fb9a203c6fb51ebcd'  # config.extra
-  'SKIP'                                                                                                                              # config.user
-  'SKIP'                                                                                                                              # remote
-  'a483bfcc2f7926def88842a1b5da5170ed50e941d82e5389521c71e82015f1b1d8503efda1517f85105a5ed218bd4ca282f4381b16926cdc774c85b8b5a11615'  # patches
-)
+b2sums=('SKIP'
+        'a2644043800a384d40677ed957c5c9cbd70600b20f700fa5c3e84684574da7496f8a17b10f2984a15a918ef60211db08996cb189daf3a98cbb8bb5cbad0a8512'
+        '249bec61fed688345a0f41245af9e8e189af3149e66a3c0dcc8e833151428232a701a35ed760ef93ceb5f25d9378c44f903f380a7051a65fb9a203c6fb51ebcd'
+        'e162f38de7a7dc870dbd9a91b5e5b05460090a259dec4ff07d9f71155521aea907e10420271ad404d1959899e9e1819ad31547401d06c2ed77d04c690c03e3e0'
+        'a50d0b4842bb6ad4d522beb71aa29a5b130ad43ea09efcada3aee472346d2f28ed30af3c91139442db3ae885d32a903697641551d5cb2a7fc1371f0b4249815a'
+        '04709de86b8803edfc2d12e5fe80d96c172eb817c8cf357990821003b344f54e0dd6f35a0694a2e8012d7d9cbac082ffeaeaaf036301b084fc69361034a91c7f')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase

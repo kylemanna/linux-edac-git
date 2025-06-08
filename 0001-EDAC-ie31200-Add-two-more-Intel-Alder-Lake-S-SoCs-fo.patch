@@ -1,0 +1,46 @@
+From 04ad953e585da7119a5bd127cf516009a36c4a26 Mon Sep 17 00:00:00 2001
+From: Kyle Manna <kyle@kylemanna.com>
+Date: Sun, 8 Jun 2025 12:05:21 -0700
+Subject: [PATCH] EDAC/ie31200: Add two more Intel Alder Lake-S SoCs for EDAC
+ support
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Host Devie IDs (DID0) correspond to:
+* Intel Core i7-12700K
+* Intel Core i5-12600K
+
+See documentation:
+* https://edc.intel.com/content/www/us/en/design/ipla/software-development-platforms/client/platforms/alder-lake-desktop/12th-generation-intel-core-processors-datasheet-volume-1-of-2/011/device-ids/
+* 12th Generation Intel® Core™ Processors Datasheet, Volume 1 of 2, Doc. No.: 655258, Rev.: 011
+    * https://edc.intel.com/output/DownloadPdfDocument?id=8297 (PDF)
+---
+ drivers/edac/ie31200_edac.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/drivers/edac/ie31200_edac.c b/drivers/edac/ie31200_edac.c
+index a53612be4b2f..2078c12bbed2 100644
+--- a/drivers/edac/ie31200_edac.c
++++ b/drivers/edac/ie31200_edac.c
+@@ -94,6 +94,8 @@
+ 
+ /* Alder Lake-S */
+ #define PCI_DEVICE_ID_INTEL_IE31200_ADL_S_1	0x4660
++#define PCI_DEVICE_ID_INTEL_IE31200_ADL_S_2	0x4668
++#define PCI_DEVICE_ID_INTEL_IE31200_ADL_S_3	0x4648
+ 
+ #define IE31200_RANKS_PER_CHANNEL	8
+ #define IE31200_DIMMS_PER_CHANNEL	2
+@@ -741,6 +743,8 @@ static const struct pci_device_id ie31200_pci_tbl[] = {
+ 	{ PCI_VDEVICE(INTEL, PCI_DEVICE_ID_INTEL_IE31200_RPL_S_3), (kernel_ulong_t)&rpl_s_cfg},
+ 	{ PCI_VDEVICE(INTEL, PCI_DEVICE_ID_INTEL_IE31200_RPL_S_4), (kernel_ulong_t)&rpl_s_cfg},
+ 	{ PCI_VDEVICE(INTEL, PCI_DEVICE_ID_INTEL_IE31200_ADL_S_1), (kernel_ulong_t)&rpl_s_cfg},
++	{ PCI_VDEVICE(INTEL, PCI_DEVICE_ID_INTEL_IE31200_ADL_S_2), (kernel_ulong_t)&rpl_s_cfg},
++	{ PCI_VDEVICE(INTEL, PCI_DEVICE_ID_INTEL_IE31200_ADL_S_3), (kernel_ulong_t)&rpl_s_cfg},
+ 	{ 0, } /* 0 terminated list. */
+ };
+ MODULE_DEVICE_TABLE(pci, ie31200_pci_tbl);
+-- 
+2.49.0
+

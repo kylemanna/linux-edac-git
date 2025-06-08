@@ -9,4 +9,5 @@
 # )
 
 PATCHES=(
+    '0001-EDAC-ie31200-Add-two-more-Intel-Alder-Lake-S-SoCs-fo.patch'
 )
